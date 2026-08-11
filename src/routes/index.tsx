@@ -12,7 +12,6 @@ import {
   ArrowRight,
   Zap,
   BadgeCheck,
-
   Bot,
   Slack,
 } from "lucide-react";
@@ -172,7 +171,6 @@ const steps = [
   },
 ];
 
-
 const whyUs = [
   {
     icon: BadgeCheck,
@@ -264,7 +262,6 @@ const tiers = [
   },
 ];
 
-
 const alaCarte = [
   { item: "New Website", price: "$297 one-time + $47/mo" },
   { item: "Landing Page", price: "$197 one-time" },
@@ -283,7 +280,10 @@ const alaCarte = [
   { item: "AI Webchat Bot", price: "$247/mo" },
   { item: "AI Appointment Setter", price: "$397/mo" },
   { item: "AI Video Organic Pack (4 videos/mo)", price: "$197/mo" },
-  { item: "Professional Video Shoot (in-person videographer)", price: "$497/shoot, quarterly recommended" },
+  {
+    item: "Professional Video Shoot (in-person videographer)",
+    price: "$497/shoot, quarterly recommended",
+  },
   {
     item: "Video Sales Letter",
     price: "$349 one-time",
@@ -406,8 +406,8 @@ function Index() {
             A complete system built to make your phone ring
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Advertising, landing pages, call tracking, and automated follow-up — all working together
-            to drive more inbound calls to your business.
+            Advertising, landing pages, call tracking, and automated follow up. All working
+            together to drive more inbound calls to your business.
           </p>
         </div>
 
@@ -454,8 +454,6 @@ function Index() {
         </div>
       </section>
 
-
-
       {/* Why us */}
       <section id="why" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <div className="max-w-2xl">
@@ -500,13 +498,9 @@ function Index() {
             >
               Book a Demo
             </a>
-
           </div>
         </div>
       </section>
-
-
-
 
       {/* Testimonials */}
       <section id="testimonials" className="border-y border-border bg-muted/50">
@@ -544,7 +538,6 @@ function Index() {
           </div>
         </div>
       </section>
-
 
       {/* Pricing */}
       <section id="pricing" className="border-t border-border bg-muted/50">
@@ -640,7 +633,6 @@ function Index() {
             </span>
           </div>
 
-
           {/* À La Carte */}
           <div className="mt-16">
             <h3 className="text-2xl font-extrabold md:text-3xl">À La Carte</h3>
@@ -702,7 +694,6 @@ function Index() {
           </div>
         </div>
       </section>
-
 
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-5 py-20">

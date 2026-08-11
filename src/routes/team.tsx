@@ -52,7 +52,6 @@ const team = [
   },
 ];
 
-
 function TeamPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -131,7 +130,6 @@ function TeamPage() {
               <a href="/#pricing">Get started</a>
             </Button>
           </div>
-
         </div>
       </header>
 
@@ -171,7 +169,6 @@ function TeamPage() {
             </div>
           ))}
         </div>
-
 
         <div className="mt-16 rounded-2xl border border-border bg-muted/40 p-8 text-center">
           <h2 className="font-display text-2xl font-bold text-foreground">

@@ -44,24 +44,24 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          "name": "JumpCalls",
-          "url": "https://jumpcalls.com",
-          "logo": "https://jumpcalls.com/favicon.png",
-          "description":
+          name: "JumpCalls",
+          url: "https://jumpcalls.com",
+          logo: "https://jumpcalls.com/favicon.png",
+          description:
             "Call generation for home service businesses: website, ads, call tracking, and follow-up automation.",
-          "priceRange": "$297 - $879/mo",
-          "areaServed": "United States",
-          "serviceOffered": [
+          priceRange: "$297 - $879/mo",
+          areaServed: "United States",
+          serviceOffered: [
             {
               "@type": "Service",
-              "name": "Home Service Ad Campaigns & Call Generation",
-              "description":
+              name: "Home Service Ad Campaigns & Call Generation",
+              description:
                 "Google & Meta ad management built to drive inbound calls for home contractors.",
             },
             {
               "@type": "Service",
-              "name": "Call Tracking & CRM Automation",
-              "description":
+              name: "Call Tracking & CRM Automation",
+              description:
                 "Automated SMS/Email follow-up and missed call text-back.",
             },
           ],

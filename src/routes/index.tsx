@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
           url: "https://jumpcalls.com",
           logo: "https://jumpcalls.com/favicon.png",
           description:
-            "Call generation for home service businesses: website, ads, call tracking, and follow-up automation.",
+            "Call generation for home service businesses: website, ads, call tracking, and follow-up tools.",
           priceRange: "$297 - $879/mo",
           areaServed: "United States",
           serviceOffered: [
@@ -60,8 +60,7 @@ export const Route = createFileRoute("/")({
             {
               "@type": "Service",
               name: "Call Tracking & CRM Automation",
-              description:
-                "Automated SMS/Email follow-up and missed call text-back.",
+              description: "Automated SMS/Email follow-up and missed call text-back.",
             },
           ],
         }),
@@ -214,11 +213,7 @@ const tiers = [
     name: "Discovery",
     badge: "Get Found",
     price: "$497",
-    features: [
-      "Everything in Starter",
-      "Google Business Profile (GMB) Optimization",
-      "Google SEO",
-    ],
+    features: ["Everything in Starter", "Google Business Profile (GMB) Optimization", "Google SEO"],
     note: "Get found by customers already searching for you",
     spend: "",
     addOn: "+$100 for Google Ads",
@@ -291,7 +286,6 @@ const alaCarte = [
       "A custom video pitch made for your business, built to convert leads who aren't ready to book yet.",
   },
 ];
-
 
 const stats = [
   { value: "One price", label: "Flat monthly, no hidden fees" },
@@ -406,8 +400,8 @@ function Index() {
             A complete system built to make your phone ring
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Advertising, landing pages, call tracking, and automated follow up. All working
-            together to drive more inbound calls to your business.
+            Advertising, landing pages, call tracking, and automated follow up. All working together
+            to drive more inbound calls to your business.
           </p>
         </div>
 
@@ -446,8 +440,6 @@ function Index() {
                 </span>
                 <h3 className="mt-3 text-lg font-bold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-
-
               </div>
             ))}
           </div>
@@ -487,8 +479,8 @@ function Index() {
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
               Qualified calls, leads and business driven directly to your phone. At JumpCalls we
-              deliver in-depth market research reports to better understand your audience, customers,
-              and growth.
+              deliver in-depth market research reports to better understand your audience,
+              customers, and growth.
             </p>
             <a
               href="https://calendly.com/jumpcalls/60min"
@@ -543,7 +535,9 @@ function Index() {
       <section id="pricing" className="border-t border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Pricing</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+              Pricing
+            </span>
             <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
               One booked job pays for the month
             </h2>
@@ -620,8 +614,6 @@ function Index() {
                 {"footnote" in t && t.footnote ? (
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{t.footnote}</p>
                 ) : null}
-
-
               </div>
             ))}
           </div>
@@ -665,7 +657,6 @@ function Index() {
               </table>
             </div>
           </div>
-
         </div>
       </section>
 

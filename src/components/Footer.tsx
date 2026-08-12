@@ -43,7 +43,8 @@ export function Footer() {
           <div className="space-y-4 sm:col-span-2">
             <FooterWordmark />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Call generation for home service businesses: website, ads, call tracking, and follow up automation. Done for you for one flat monthly price.
+              Call generation for home service businesses: website, ads, call tracking, and follow
+              up automation. Done for you for one flat monthly price.
             </p>
           </div>
 

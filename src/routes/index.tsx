@@ -11,32 +11,44 @@ import {
   Check,
   ArrowRight,
   Zap,
-  BadgeCheck,
-  Bot,
   Slack,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/MobileNav";
 import { Footer } from "@/components/Footer";
+import { HowPeopleFind } from "@/components/HowPeopleFind";
+import { ServicesGrid } from "@/components/ServicesGrid";
+import { ThreeStep } from "@/components/ThreeStep";
+import { Solutions } from "@/components/Solutions";
+import { CallFaq, faqs } from "@/components/CallFaq";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JumpCalls — We Get You More Calls" },
+      { title: "Get More Inbound Calls For Your Local Business | JumpCalls" },
       {
         name: "description",
         content:
-          "Call generation for home service businesses: website, ads, call tracking, and follow-up automation — done for you for one flat monthly price.",
+          "Turn local searchers into phone calls with Google Maps optimization, AI SEO, Google and Meta Ads, and 24/7 AI receptionists.",
       },
-      { property: "og:title", content: "JumpCalls — We Get You More Calls" },
+      {
+        property: "og:title",
+        content: "Get More Inbound Calls For Your Local Business | JumpCalls",
+      },
       {
         property: "og:description",
         content:
-          "Websites, ad campaigns, call tracking, and CRM automation that drive more inbound calls to your home service business.",
+          "Turn local searchers into phone calls with Google Maps optimization, AI SEO, Google and Meta Ads, and 24/7 AI receptionists.",
       },
-      { property: "og:image", content: "https://jumpcalls.com/og-image.png" },
-      { name: "twitter:image", content: "https://jumpcalls.com/og-image.png" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.jumpcalls.com/" },
+      { property: "og:image", content: "https://www.jumpcalls.com/og-image.png" },
+      { name: "twitter:title", content: "Get More Inbound Calls For Your Local Business | JumpCalls" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:description", content: "Turn local searchers into phone calls with Google Maps optimization, AI SEO, Google and Meta Ads, and 24/7 AI receptionists." },
+      { name: "twitter:image", content: "https://www.jumpcalls.com/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "https://www.jumpcalls.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -44,25 +56,71 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "JumpCalls",
-          url: "https://jumpcalls.com",
-          logo: "https://jumpcalls.com/favicon.png",
+          url: "https://www.jumpcalls.com/",
+          image: "https://www.jumpcalls.com/og-image.png",
           description:
-            "Call generation for home service businesses: website, ads, call tracking, and follow-up tools.",
-          priceRange: "$297 - $879/mo",
-          areaServed: "United States",
-          serviceOffered: [
-            {
-              "@type": "Service",
-              name: "Home Service Ad Campaigns & Call Generation",
-              description:
-                "Google & Meta ad management built to drive inbound calls for home contractors.",
-            },
-            {
-              "@type": "Service",
-              name: "Call Tracking & CRM Automation",
-              description: "Automated SMS/Email follow-up and missed call text-back.",
-            },
+            "Inbound call generation for local businesses: Google Maps optimization, AI SEO for local search, pay-per-call marketing, high-converting call landing pages, call tracking, and 24/7 AI phone receptionists.",
+          areaServed: { "@type": "Country", name: "United States" },
+          serviceType: [
+            "Local SEO",
+            "Pay-Per-Call Marketing",
+            "Call Tracking",
+            "AI Phone Automation",
           ],
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Call generation services",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Local SEO & Google Maps Optimization",
+                  description:
+                    "Google Maps optimization for local phone calls and AI SEO for local search, built to win the local Map Pack.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Pay-Per-Call Local Marketing",
+                  description:
+                    "Google and Meta campaigns structured for pay-per-call local marketing and direct inbound calls.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Call Tracking & Analytics",
+                  description:
+                    "Tracking numbers, recordings, and reporting that link every phone call to the campaign and keyword that produced it.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "AI Phone Automation",
+                  description:
+                    "24/7 AI Phone Receptionist for local contractors that answers calls, qualifies leads, and schedules appointments.",
+                },
+              },
+            ],
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         }),
       },
     ],
@@ -137,58 +195,6 @@ const included = [
   },
 ];
 
-const steps = [
-  {
-    n: "01",
-    title: "Market Research & Development",
-    body: "Create research-driven ads for your business, built around what your local customers actually search and click.",
-  },
-  {
-    n: "02",
-    title: "Growth powered systems",
-    body: "Website, landing pages, and campaign infrastructure built for one job: turning attention into phone calls.",
-  },
-  {
-    n: "03",
-    title: "Calls start coming in",
-    body: "Qualified inbound calls hit your phone from the campaigns and pages we launched for you.",
-  },
-  {
-    n: "04",
-    title: "Follow up with leads",
-    body: "Automated text and email sequences keep every lead warm so no inquiry goes cold.",
-  },
-  {
-    n: "05",
-    title: "Call and data tracking",
-    body: "Every call tracked to its source, with clear reporting on volume, channels, and cost per call.",
-  },
-  {
-    n: "06",
-    title: "AI tools and automations",
-    body: "AI webchat, missed-call text-back, and appointment scheduling working around the clock.",
-  },
-];
-
-const whyUs = [
-  {
-    icon: BadgeCheck,
-    title: "Reach More Customers Online",
-    body: "We put your business in front of the people already searching for what you do — across Google, Meta, and local search — so more of your market finds you first.",
-  },
-  {
-    icon: BarChart3,
-    title: "Data and Call Tracking",
-    body: "Every call, form, and click is tracked back to the campaign that created it, so you see exactly what's working and where your money goes.",
-  },
-
-  {
-    icon: Bot,
-    title: "AI-powered systems",
-    body: "Automation and optimization that work around the clock to keep your call volume climbing.",
-  },
-];
-
 const tiers = [
   {
     name: "Starter",
@@ -196,13 +202,14 @@ const tiers = [
     price: "$297",
     features: [
       "New Landing Page",
+      "Google Business Profile (GBP) Optimization",
       "Instant Lead Follow-Up",
       "Missed-Call Text-Back",
       "CRM Database Management",
       "Call Tracking",
       "Web Hosting",
     ],
-    note: "Everything you need to start catching calls",
+    note: "Everything you need to fix your local base and catch missed calls",
     spend: "",
     addOn: "",
     cta: "Start with Starter",
@@ -213,10 +220,15 @@ const tiers = [
     name: "Discovery",
     badge: "Get Found",
     price: "$497",
-    features: ["Everything in Starter", "Google Business Profile (GMB) Optimization", "Google SEO"],
-    note: "Get found by customers already searching for you",
+    features: [
+      "Everything in Starter",
+      "Google SEO & Keyword Optimization",
+      "AI SEO (AEO / GEO Search Optimization)",
+      "Automated Review Generation",
+    ],
+    note: "Get found by local customers already searching for your services",
     spend: "",
-    addOn: "+$100 for Google Ads",
+    addOn: "",
     cta: "Get Discovery",
     href: "https://buy.stripe.com/7sY7sLgo12ZRgHD77Ycwg05",
     popular: false,
@@ -227,7 +239,7 @@ const tiers = [
     price: "$647",
     features: [
       "Everything in Discovery",
-      "Single Ad Platform Management (Google, Meta, or CTV)",
+      "Single Ad Platform Management (Google or Meta Ads)",
       "Automated Follow-Up Sequence (3-touch)",
     ],
     note: "No lead goes cold, no call goes missed",
@@ -244,11 +256,11 @@ const tiers = [
     price: "$879",
     features: [
       "Everything in Growth",
+      "24/7 AI Phone Receptionist (Voice Answering)",
       "Full Email & SMS Nurture Automation",
-      "AI Webchat Bot",
-      "AI Appointment Setter",
+      "AI Webchat Bot & Appointment Setter",
     ],
-    note: "Captures and books every lead, day or night",
+    note: "Captures, answers, and books every lead 24/7 with Voice AI",
     spend: "+ ad spend, billed direct",
     addOn: "",
     cta: "Get Pro",
@@ -258,7 +270,7 @@ const tiers = [
 ];
 
 const alaCarte = [
-  { item: "New Website", price: "$297 one-time + $47/mo" },
+  { item: "New Website", price: "TBD" },
   { item: "Landing Page", price: "$197 one-time" },
   { item: "Database Setup", price: "$147 one-time" },
   { item: "Single Ad Platform Management", price: "$297/mo + ad spend" },
@@ -275,10 +287,7 @@ const alaCarte = [
   { item: "AI Webchat Bot", price: "$247/mo" },
   { item: "AI Appointment Setter", price: "$397/mo" },
   { item: "AI Video Organic Pack (4 videos/mo)", price: "$197/mo" },
-  {
-    item: "Professional Video Shoot (in-person videographer)",
-    price: "$497/shoot, quarterly recommended",
-  },
+  { item: "Professional Video Shoot (in-person videographer)", price: "$497/shoot, quarterly recommended" },
   {
     item: "Video Sales Letter",
     price: "$349 one-time",
@@ -299,21 +308,21 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <Wordmark />
-          <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground lg:flex">
+            <a href="#services" className="transition-colors hover:text-foreground">
+              Services
+            </a>
             <a href="#included" className="transition-colors hover:text-foreground">
               What's included
-            </a>
-            <a href="#how" className="transition-colors hover:text-foreground">
-              How it works
-            </a>
-            <a href="#why" className="transition-colors hover:text-foreground">
-              Why us
             </a>
             <a href="#testimonials" className="transition-colors hover:text-foreground">
               Testimonials
             </a>
             <a href="#pricing" className="transition-colors hover:text-foreground">
               Pricing
+            </a>
+            <a href="#faq" className="transition-colors hover:text-foreground">
+              FAQ
             </a>
             <Link to="/team" className="transition-colors hover:text-foreground">
               Team
@@ -352,27 +361,32 @@ function Index() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-ink-border bg-ink-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <Zap className="size-3.5" />
-              Call generation for home services
+              We Get The Phone Jumpin' — Call generation for home services
             </span>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-ink-foreground sm:text-5xl md:text-6xl">
               More Calls, More Leads, <span className="text-primary">More Business</span>.
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
-              Website, ads, and follow-up — done for you, for one flat monthly price. No long-term
-              contract required to start.
+            <p className="mx-auto mt-5 max-w-2xl text-lg font-bold text-ink-foreground md:text-xl">
+              Inbound call generation for local businesses.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button variant="hero" size="xl" asChild>
                 <a href="#pricing">
-                  Get more calls <ArrowRight className="size-4" />
+                  Get more calls for your business <ArrowRight className="size-4" />
                 </a>
               </Button>
               <Button variant="onInk" size="xl" asChild>
-                <a href="#how">See how it works</a>
+                <a
+                  href="https://calendly.com/jumpcalls/60min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Claim Your Free Local Call Audit
+                </a>
               </Button>
             </div>
             <p className="mt-4 text-sm text-ink-muted">
-              Flat monthly pricing. Cancel anytime. Every call tracked.
+              Flat monthly pricing. Cancel anytime. Every call tracked. Get more calls for your business.
             </p>
           </div>
 
@@ -389,6 +403,12 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <ServicesGrid />
+
+      <Solutions />
+
+      <ThreeStep />
 
       {/* What's included */}
       <section id="included" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
@@ -421,51 +441,7 @@ function Index() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section id="how" className="surface-ink border-y border-ink-border">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:py-24">
-          <h2 className="text-3xl font-extrabold md:text-4xl">How it works</h2>
-          <p className="mt-4 max-w-2xl text-ink-muted">
-            A fast path to new calls and more business landing on your phone.
-          </p>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((s) => (
-              <div
-                key={s.n}
-                className="rounded-2xl border border-ink-border bg-white/5 p-7 backdrop-blur-sm"
-              >
-                <span className="font-display text-sm font-extrabold tracking-widest text-primary">
-                  {s.n}
-                </span>
-                <h3 className="mt-3 text-lg font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why us */}
-      <section id="why" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <div className="max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-primary">Why us</span>
-          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
-            Growth you can actually measure
-          </h2>
-        </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {whyUs.map((w) => (
-            <div key={w.title} className="shadow-card rounded-2xl border border-border bg-card p-7">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
-                <w.icon className="size-5" />
-              </div>
-              <h3 className="mt-5 text-lg font-bold">{w.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{w.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <HowPeopleFind />
 
       {/* Get It Jumpin' */}
       <section id="get-it-jumpin" className="border-y border-border bg-muted/50">
@@ -535,25 +511,24 @@ function Index() {
       <section id="pricing" className="border-t border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Pricing
-            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Pricing</span>
             <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
-              One booked job pays for the month
+              Affordable Pricing Designed To Help{" "}
+              <span className="text-primary">Small Business</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
               Flat monthly plans. No hidden fees, no setup fees, no long-term contract to start.
             </p>
           </div>
 
-          <div className="mt-14 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
             {tiers.map((t) => (
               <div
                 key={t.name}
                 className={
                   t.popular
-                    ? "shadow-green relative rounded-3xl border-2 border-primary bg-card p-8"
-                    : "shadow-card relative rounded-3xl border border-border bg-card p-8"
+                    ? "shadow-green relative flex h-full flex-col rounded-3xl border-2 border-primary bg-card p-8"
+                    : "shadow-card relative flex h-full flex-col rounded-3xl border border-border bg-card p-8"
                 }
               >
                 <span
@@ -565,34 +540,28 @@ function Index() {
                 >
                   {t.badge}
                 </span>
-                <h3 className="text-lg font-bold">{t.name}</h3>
-                <div className="mt-4 flex items-end gap-1">
-                  <span
-                    className={
-                      t.popular
-                        ? "font-display text-4xl font-extrabold text-primary"
-                        : "font-display text-4xl font-extrabold"
-                    }
-                  >
-                    {t.price}
-                  </span>
-                  <span className="pb-1 text-sm text-muted-foreground">/mo</span>
+                <div className="flex-none">
+                  <h3 className="text-lg font-bold">{t.name}</h3>
+                  <div className="mt-4 flex items-end gap-1">
+                    <span
+                      className={
+                        t.popular
+                          ? "font-display text-4xl font-extrabold text-primary"
+                          : "font-display text-4xl font-extrabold"
+                      }
+                    >
+                      {t.price}
+                    </span>
+                    <span className="pb-1 text-sm text-muted-foreground">/mo</span>
+                  </div>
+                  {t.note ? (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.note}</p>
+                  ) : null}
+                  {t.spend ? (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.spend}</p>
+                  ) : null}
                 </div>
-                {t.note ? (
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.note}</p>
-                ) : null}
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.spend}</p>
-                <Button
-                  variant={t.popular ? "hero" : "outline"}
-                  size="xl"
-                  className="mt-7 w-full"
-                  asChild
-                >
-                  <a href={t.href} target="_blank" rel="noopener noreferrer">
-                    {t.cta}
-                  </a>
-                </Button>
-                <ul className="mt-7 space-y-3">
+                <ul className="mt-7 flex-1 space-y-3">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
                       <Check
@@ -607,13 +576,23 @@ function Index() {
                   ))}
                 </ul>
                 {t.addOn ? (
-                  <p className="mt-6 whitespace-nowrap overflow-hidden rounded-xl border border-primary/30 bg-primary/5 px-3 py-2 text-center text-xs font-semibold text-primary sm:text-sm">
+                  <p className="mt-6 overflow-hidden whitespace-nowrap rounded-xl border border-primary/30 bg-primary/5 px-3 py-2 text-center text-xs font-semibold text-primary sm:text-sm">
                     {t.addOn}
                   </p>
                 ) : null}
                 {"footnote" in t && t.footnote ? (
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{t.footnote}</p>
                 ) : null}
+                <Button
+                  variant={t.popular ? "hero" : "outline"}
+                  size="xl"
+                  className="mt-7 w-full"
+                  asChild
+                >
+                  <a href={t.href} target="_blank" rel="noopener noreferrer">
+                    {t.cta}
+                  </a>
+                </Button>
               </div>
             ))}
           </div>
@@ -686,20 +665,35 @@ function Index() {
         </div>
       </section>
 
+      <CallFaq />
+
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="surface-ink grid-glow rounded-3xl px-6 py-14 text-center md:px-16">
           <h2 className="text-3xl font-extrabold text-ink-foreground md:text-4xl">
-            Ready for a busier phone?
+            Ready to get more calls for your business?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-ink-muted">
-            Pick a package and we'll build the website, ads, and follow-up that bring in more calls.
+            Ready for a busier phone? Pick a package and we'll build the website, ads, AI answering,
+            and follow-up that bring in more calls — or book a free local call audit and we'll show
+            you exactly where your calls are leaking.
           </p>
-          <Button variant="hero" size="xl" className="mt-8" asChild>
-            <a href="#pricing">
-              Get more calls <ArrowRight className="size-4" />
-            </a>
-          </Button>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button variant="hero" size="xl" asChild>
+              <a href="#pricing">
+                Get more calls for your business <ArrowRight className="size-4" />
+              </a>
+            </Button>
+            <Button variant="onInk" size="xl" asChild>
+              <a
+                href="https://calendly.com/jumpcalls/60min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Claim Your Free Local Call Audit
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

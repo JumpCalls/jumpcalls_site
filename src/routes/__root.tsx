@@ -3,6 +3,7 @@ import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/r
 import { useEffect } from "react";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Analytics } from "@vercel/analytics/react";
+import { ChatWidget } from "@/components/ChatWidget";
 
 function NotFoundComponent() {
   return (
@@ -76,6 +77,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <ChatWidget />
       <Analytics />
     </QueryClientProvider>
   );

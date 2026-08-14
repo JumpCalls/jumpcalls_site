@@ -108,11 +108,6 @@ export function Footer() {
                   Book Demo
                 </a>
               </li>
-              <li>
-                <a href="/sitemap.xml" className="transition-colors hover:text-foreground">
-                  XML Sitemap
-                </a>
-              </li>
             </ul>
           </div>
 

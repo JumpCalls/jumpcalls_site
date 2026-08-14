@@ -8,14 +8,11 @@ const TEMPLATE_QUESTIONS = [
   "How can JumpCalls help my business grow?",
 ];
 
-const MAX_MESSAGES = 6;
-const STORAGE_KEY = "jumpcalls_chat_history_v2";
-const COUNT_KEY = "jumpcalls_chat_count_v2";
+const STORAGE_KEY = "jumpcalls_chat_history_v3";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [userMessageCount, setUserMessageCount] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -25,7 +22,6 @@ export function ChatWidget() {
   useEffect(() => {
     try {
       const savedMessages = localStorage.getItem(STORAGE_KEY);
-      const savedCount = localStorage.getItem(COUNT_KEY);
 
       if (savedMessages) {
         setMessages(JSON.parse(savedMessages));
@@ -34,13 +30,9 @@ export function ChatWidget() {
           {
             role: "assistant",
             content:
-              "Hi there! 👋 I'm Jumper, the JumpCalls AI growth specialist. Looking to get more exclusive inbound calls and high-paying booked jobs for your local business? Ask me anything about our plans, pricing, or 24/7 AI phone receptionists!",
+              "Hi there! 👋 I'm Jumper, the JumpCalls AI growth specialist. Looking to get more exclusive inbound calls and high-paying booked jobs for your local business? How can I help?",
           },
         ]);
-      }
-
-      if (savedCount) {
-        setUserMessageCount(parseInt(savedCount, 10) || 0);
       }
     } catch {
       // Ignore storage errors
@@ -52,12 +44,11 @@ export function ChatWidget() {
     if (messages.length > 1) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-        localStorage.setItem(COUNT_KEY, userMessageCount.toString());
       } catch {
         // Ignore storage errors
       }
     }
-  }, [messages, userMessageCount]);
+  }, [messages]);
 
   // Scroll to bottom when messages update
   useEffect(() => {
@@ -68,17 +59,15 @@ export function ChatWidget() {
 
   // Focus input when opened
   useEffect(() => {
-    if (isOpen && userMessageCount < MAX_MESSAGES) {
+    if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 150);
     }
-  }, [isOpen, userMessageCount]);
+  }, [isOpen]);
 
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend || inputValue).trim();
-    if (!text || isLoading || userMessageCount >= MAX_MESSAGES) return;
+    if (!text || isLoading) return;
 
-    const newCount = userMessageCount + 1;
-    setUserMessageCount(newCount);
     setInputValue("");
 
     const updatedMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
@@ -89,7 +78,6 @@ export function ChatWidget() {
       const result = await sendChatMessage({
         data: {
           messages: updatedMessages,
-          messageCount: newCount,
         },
       });
 
@@ -188,15 +176,9 @@ export function ChatWidget() {
                     AI
                   </span>
                 </div>
-                <div className="text-[11px] text-muted-foreground">
-                  {userMessageCount >= MAX_MESSAGES ? (
-                    <span className="text-amber-500 font-medium">Session limit reached</span>
-                  ) : (
-                    <span>
-                      {MAX_MESSAGES - userMessageCount} message
-                      {MAX_MESSAGES - userMessageCount === 1 ? "" : "s"} left
-                    </span>
-                  )}
+                <div className="text-[11px] text-muted-foreground flex items-center gap-1">
+                  <span className="size-1.5 rounded-full bg-emerald-500 inline-block" />
+                  Growth Specialist • Online
                 </div>
               </div>
             </div>
@@ -226,8 +208,8 @@ export function ChatWidget() {
                 )}
                 <div
                   className={`max-w-[82%] rounded-2xl px-3.5 py-2.5 leading-relaxed text-sm shadow-sm ${m.role === "user"
-                      ? "rounded-tr-xs bg-primary font-medium text-primary-foreground"
-                      : "rounded-tl-xs border border-border/80 bg-background/90 text-foreground"
+                    ? "rounded-tr-xs bg-primary font-medium text-primary-foreground"
+                    : "rounded-tl-xs border border-border/80 bg-background/90 text-foreground"
                     }`}
                 >
                   {renderMessageContent(m.content)}
@@ -254,31 +236,11 @@ export function ChatWidget() {
               </div>
             )}
 
-            {/* Session Limit Banner */}
-            {userMessageCount >= MAX_MESSAGES && !isLoading && (
-              <div className="rounded-xl border border-primary/30 bg-primary/5 p-3.5 text-center mt-2">
-                <div className="text-xs font-bold text-foreground">
-                  You've used your {MAX_MESSAGES} chat questions!
-                </div>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  Ready to see how many calls JumpCalls can bring your business?
-                </p>
-                <a
-                  href="https://calendly.com/jumpcalls/60min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2.5 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
-                  Claim Free Local Call Audit <ArrowRight className="size-3" />
-                </a>
-              </div>
-            )}
-
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Preset Questions Chips (shown if user has sent <= 2 messages) */}
-          {userMessageCount < MAX_MESSAGES && (
+          {/* Preset Questions Chips (shown if user has sent few messages) */}
+          {messages.filter((m) => m.role === "user").length <= 2 && (
             <div className="border-t border-border/50 bg-muted/20 px-3 py-2">
               <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
                 Suggested questions:
@@ -287,7 +249,7 @@ export function ChatWidget() {
                 {TEMPLATE_QUESTIONS.map((q) => (
                   <button
                     key={q}
-                    disabled={isLoading || userMessageCount >= MAX_MESSAGES}
+                    disabled={isLoading}
                     onClick={() => handleSendMessage(q)}
                     className="rounded-full border border-border bg-background px-2.5 py-1 text-left text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 hover:text-foreground disabled:opacity-50"
                   >
@@ -312,17 +274,13 @@ export function ChatWidget() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                disabled={isLoading || userMessageCount >= MAX_MESSAGES}
-                placeholder={
-                  userMessageCount >= MAX_MESSAGES
-                    ? "Session limit reached. Book a demo above!"
-                    : "Ask about pricing, services..."
-                }
+                disabled={isLoading}
+                placeholder="Ask about pricing, services..."
                 className="flex-1 rounded-xl border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
               />
               <button
                 type="submit"
-                disabled={!inputValue.trim() || isLoading || userMessageCount >= MAX_MESSAGES}
+                disabled={!inputValue.trim() || isLoading}
                 aria-label="Send message"
                 className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-transform hover:scale-105 active:scale-95 disabled:pointer-events-none disabled:opacity-40"
               >

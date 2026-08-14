@@ -50,13 +50,10 @@ const SMART_RESPONSES: Record<string, string> = {
 export async function sendChatMessage({
   data,
 }: {
-  data: { messages: ChatMessage[]; messageCount: number };
+  data: { messages: ChatMessage[]; messageCount?: number };
 }): Promise<{ reply: string; isMock: boolean }> {
   if (!data || !Array.isArray(data.messages)) {
     throw new Error("Invalid request: messages array is required.");
-  }
-  if (data.messageCount > 6) {
-    throw new Error("Session message limit reached. Maximum 6 messages allowed.");
   }
 
   const lastUserMsg = [...data.messages].reverse().find((m) => m.role === "user");

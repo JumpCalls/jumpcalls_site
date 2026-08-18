@@ -252,7 +252,7 @@ export function HowPeopleFind() {
           style={{ background: "#0F2220", ...reveal(inView, ctaDelay, skip) }}
         >
           <p className="text-lg font-bold leading-snug text-white md:text-xl">
-            JumpCalls provides the tools and strategies for your business to get more calls from{" "}
+            JumpCalls provides the tools and strategies to get more qualified calls from{" "}
             <span style={{ color: "#13B049" }}>AI Search</span>.
           </p>
         </div>

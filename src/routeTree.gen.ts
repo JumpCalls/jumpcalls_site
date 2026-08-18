@@ -10,12 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FreeSeoAuditRouteImport } from './routes/free-seo-audit'
+import { Route as SeoAuditThanksRouteImport } from './routes/seo-audit-thanks'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeSeoAuditRoute = FreeSeoAuditRouteImport.update({
+  id: '/free-seo-audit',
+  path: '/free-seo-audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoAuditThanksRoute = SeoAuditThanksRouteImport.update({
+  id: '/seo-audit-thanks',
+  path: '/seo-audit-thanks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamRoute = TeamRouteImport.update({
@@ -28,35 +42,83 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/free-seo-audit': typeof FreeSeoAuditRoute
+  '/seo-audit-thanks': typeof SeoAuditThanksRoute
   '/team': typeof TeamRoute
   '/thank-you': typeof ThankYouRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/free-seo-audit': typeof FreeSeoAuditRoute
+  '/seo-audit-thanks': typeof SeoAuditThanksRoute
   '/team': typeof TeamRoute
   '/thank-you': typeof ThankYouRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/free-seo-audit': typeof FreeSeoAuditRoute
+  '/seo-audit-thanks': typeof SeoAuditThanksRoute
   '/team': typeof TeamRoute
   '/thank-you': typeof ThankYouRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/team' | '/thank-you'
+  fullPaths:
+    | '/'
+    | '/free-seo-audit'
+    | '/seo-audit-thanks'
+    | '/team'
+    | '/thank-you'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/team' | '/thank-you'
-  id: '__root__' | '/' | '/team' | '/thank-you'
+  to:
+    | '/'
+    | '/free-seo-audit'
+    | '/seo-audit-thanks'
+    | '/team'
+    | '/thank-you'
+    | '/services/$slug'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/free-seo-audit'
+    | '/seo-audit-thanks'
+    | '/team'
+    | '/thank-you'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FreeSeoAuditRoute: typeof FreeSeoAuditRoute
+  SeoAuditThanksRoute: typeof SeoAuditThanksRoute
   TeamRoute: typeof TeamRoute
   ThankYouRoute: typeof ThankYouRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-seo-audit': {
+      id: '/free-seo-audit'
+      path: '/free-seo-audit'
+      fullPath: '/free-seo-audit'
+      preLoaderRoute: typeof FreeSeoAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo-audit-thanks': {
+      id: '/seo-audit-thanks'
+      path: '/seo-audit-thanks'
+      fullPath: '/seo-audit-thanks'
+      preLoaderRoute: typeof SeoAuditThanksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/team': {
@@ -82,13 +158,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FreeSeoAuditRoute: FreeSeoAuditRoute,
+  SeoAuditThanksRoute: SeoAuditThanksRoute,
   TeamRoute: TeamRoute,
   ThankYouRoute: ThankYouRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

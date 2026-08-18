@@ -29,10 +29,10 @@ export function ThreeStep() {
           The 3-step process
         </span>
         <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">
-          How JumpCalls gets more calls for your business
+          How JumpCalls gets the right customers calling
         </h2>
         <p className="mt-4 text-muted-foreground">
-          A simple path from local visibility to answered, tracked, revenue-producing phone calls.
+          A simple path from precise targeting to qualified, answered, revenue-producing phone calls.
         </p>
       </div>
 

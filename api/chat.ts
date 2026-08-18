@@ -15,10 +15,10 @@ Key Selling Points & Value Propositions:
 - Transparent, Low-Risk: Flat monthly pricing, zero long-term lock-in contracts, cancel anytime, no hidden fees.
 
 Pricing Tiers (Flat monthly, no contracts):
-1. Starter ($297/mo): Custom High-Converting Landing Page, Google Business Profile (GBP) Optimization, Instant Lead Follow-Up, Missed-Call Text-Back, CRM Database Management, Call Tracking & Recording, Fast Web Hosting.
-2. Discovery ($497/mo): Everything in Starter + Advanced Local Google SEO & Keyword Optimization, AI Search Optimization (AEO / GEO for ChatGPT/SGE), Automated Review Generation Engine.
-3. Growth ($647/mo - Most Popular & Best ROI for Paid Traffic): Everything in Discovery + Single Ad Platform Management (Google or Meta Ads), 3-touch Automated Follow-Up Sequence. (Ad spend billed direct to ad network).
-4. Pro ($879/mo - Ultimate AI Automation): Everything in Growth + 24/7 AI Voice Phone Receptionist (Answers 24/7 & books calls live), Full Email & SMS Nurture Automation, AI Webchat Bot & Appointment Setter. (Ad spend billed direct).
+1. Starter ($297/mo): Review Management, Google Business Profile Optimization, Instant Lead Follow-Up, Missed-Call Text-Back, CRM Database Management, and Fast Web Hosting.
+2. Discovery ($497/mo): Everything in Starter + Local SEO & Keyword Optimization, Google Business Profile Posting Automation, and Automated Review Generation.
+3. Growth ($729/mo - Most Popular): Everything in Discovery + Call Tracking, Single Ad Platform Management (Google or Meta Ads), 3-touch Automated Follow-Up, and Full Email & SMS Nurture Automation. (Ad spend billed direct).
+4. Pro ($897/mo - AI/Tech Flagship): Everything in Growth + Advanced SEO, AI Employees, AI Webchat Feature, and AI Visibility (AI SEO, GEO, AEO Optimization). (Ad spend billed direct).
 
 Team / Leadership:
 - Andreas Papageorge (CEO & Founder, visual marketing & paid ad strategist with 35+ successful client launches).

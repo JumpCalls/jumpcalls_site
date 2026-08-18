@@ -10,12 +10,12 @@ export const Route = createFileRoute("/team")({
       {
         name: "description",
         content:
-          "Meet the JumpCalls team behind the ads, landing pages, and automation that drive more calls for home service businesses.",
+          "Meet the JumpCalls team behind the targeting, ads, landing pages, and automation that attract qualified callers for home service businesses.",
       },
       { property: "og:title", content: "Our Team — JumpCalls" },
       {
         property: "og:description",
-        content: "The people building call generation systems for home service businesses.",
+        content: "The people building targeted, qualified call generation systems for home service businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,7 +32,7 @@ const team = [
     initials: "A",
     imgClass: "object-cover object-center",
     bio: [
-      "Andreas is the CEO and Founder of JumpCalls, a marketing agency dedicated to helping home service businesses generate more calls, more leads, and more booked jobs through smarter advertising and automation.",
+      "Andreas is the CEO and Founder of JumpCalls, a marketing agency dedicated to helping home service businesses attract qualified calls from the customers, locations, and job types they want through smarter targeting and automation.",
       "He holds a Bachelor of Science in Business Management from Palm Beach Atlantic University.",
       "He specializes in marketing, branding, and visual storytelling, and has worked directly with 35+ clients on their marketing plans and advertising strategy. His work spans everything from paid ad management and creative direction to building the systems that turn ad spend into a steady stream of qualified leads.",
       "At JumpCalls, he combines hands-on marketing expertise with a deep understanding of what actually drives results for local service businesses. He works closely with each client to build a marketing strategy tailored to their business, not a one-size-fits-all template, so every dollar spent on ads is working as hard as possible.",
@@ -176,7 +176,7 @@ function TeamPage() {
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
             Book a 60-minute call and we'll walk through your market, your competition, and the
-            fastest path to more calls.
+            fastest path to more qualified calls from the customers they actually want.
           </p>
           <Button variant="hero" size="lg" className="mt-6" asChild>
             <a

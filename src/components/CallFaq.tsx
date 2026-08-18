@@ -15,8 +15,8 @@ export const faqs = [
     a: "An AI Phone Receptionist for local contractors is a voice assistant that picks up your phone 24/7 — nights, weekends, and while you're on a job. It greets the caller, answers common questions, qualifies the job, and schedules the appointment straight into your calendar, then logs everything in your CRM with a transcript. If it can't handle something, it routes the call or texts you immediately so nothing goes cold.",
   },
   {
-    q: "Why focus on inbound calls over web form leads?",
-    a: "Someone who dials your number is ready now; someone filling out a form is often comparing five companies. Inbound call generation for local businesses produces shorter sales cycles, higher close rates, and far less wasted follow-up than low-intent form fills. That's why pay-per-call local marketing consistently beats click-and-form campaigns for service businesses.",
+    q: "What makes a call qualified?",
+    a: "A qualified call comes from someone in your chosen service area who needs a service you want to sell and fits the customer profile you want more of. We build targeting, messaging, landing pages, and qualification around those criteria so your team spends time on real opportunities—not irrelevant inquiries.",
   },
   {
     q: "Can I track which marketing campaign brought in each phone call?",

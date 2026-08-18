@@ -30,7 +30,7 @@ export function ChatWidget() {
           {
             role: "assistant",
             content:
-              "Hi there! 👋 I'm Jumper, the JumpCalls AI growth specialist. Looking to get more exclusive inbound calls and high-paying booked jobs for your local business? How can I help?",
+              "Hi there! 👋 I'm Jumper, the JumpCalls AI growth specialist. Looking to get more qualified calls from the customers, service areas, and job types you want? How can I help?",
           },
         ]);
       }
@@ -111,7 +111,7 @@ export function ChatWidget() {
       if (part.startsWith("http://") || part.startsWith("https://")) {
         // Strip trailing punctuation (e.g. '.', '!', '?', ')') from href
         const match = part.match(/^(https?:\/\/[^\s.,!?)]+)(.*)$/);
-        const cleanUrl = match ? match[1] : part;
+        const cleanUrl = match?.[1] ?? part;
         const trailingPunctuation = match ? match[2] : "";
 
         return (

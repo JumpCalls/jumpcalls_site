@@ -43,8 +43,8 @@ export function Footer() {
           <div className="space-y-4 sm:col-span-2">
             <FooterWordmark />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Call generation for home service businesses: website, ads, call tracking, and follow
-              up automation. Done for you for one flat monthly price.
+              Targeted call generation for home service businesses: attract qualified callers from
+              the customers, service areas, and job types you want. Done for you at one flat monthly price.
             </p>
           </div>
 
@@ -118,24 +118,16 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <a href="/#pricing" className="transition-colors hover:text-foreground">
-                  Ad Campaigns
-                </a>
+                <Link to="/services/$slug" params={{ slug: "google-meta-ads" }} className="transition-colors hover:text-foreground">Ad Campaigns</Link>
               </li>
               <li>
-                <a href="/#pricing" className="transition-colors hover:text-foreground">
-                  Landing Pages
-                </a>
+                <Link to="/services/$slug" params={{ slug: "web-landing-pages" }} className="transition-colors hover:text-foreground">Landing Pages</Link>
               </li>
               <li>
-                <a href="/#pricing" className="transition-colors hover:text-foreground">
-                  Call Tracking
-                </a>
+                <Link to="/services/$slug" params={{ slug: "call-tracking-analytics" }} className="transition-colors hover:text-foreground">Call Tracking</Link>
               </li>
               <li>
-                <a href="/#pricing" className="transition-colors hover:text-foreground">
-                  CRM &amp; Automation
-                </a>
+                <Link to="/services/$slug" params={{ slug: "ai-automation" }} className="transition-colors hover:text-foreground">CRM &amp; Automation</Link>
               </li>
             </ul>
           </div>
@@ -144,7 +136,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 text-xs text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} JumpCalls. All rights reserved.</p>
-          <p>Flat monthly pricing. Every call tracked.</p>
+          <p>Flat monthly pricing. Every qualified call tracked.</p>
         </div>
       </div>
     </footer>

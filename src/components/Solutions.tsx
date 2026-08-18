@@ -4,7 +4,7 @@ const solutions = [
   {
     icon: Target,
     title: "Drive high-intent local traffic",
-    body: "Google Maps optimization for local phone calls, AI SEO for local search, and pay-per-call local marketing pointed at high-converting call landing pages.",
+    body: "Google Maps, AI SEO, and paid campaigns target the exact services, locations, and customer profiles you want more business from.",
   },
   {
     icon: Bot,
@@ -32,7 +32,7 @@ export function Solutions() {
 
           <p className="mt-4 text-muted-foreground">
             We combine local traffic drivers with instantaneous AI receptionists, so every
-            high-intent caller gets answered immediately — and every call gets tracked back to the
+            qualified caller gets answered immediately — and every call gets tracked back to the
             campaign that created it.
           </p>
         </div>

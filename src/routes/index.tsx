@@ -9,7 +9,6 @@ import {
   MapPin,
   Check,
   ArrowRight,
-  Zap,
   Slack,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -277,11 +276,7 @@ function Index() {
       <section className="surface-ink grid-glow relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-ink-border bg-ink-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-              <Zap className="size-3.5" />
-              We Get The Right People Calling — Targeted growth for home services
-            </span>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] text-ink-foreground sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-extrabold leading-[1.05] text-ink-foreground sm:text-5xl md:text-6xl">
               Get The People You Want <span className="text-primary">Calling You</span>.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg font-bold text-ink-foreground md:text-xl">

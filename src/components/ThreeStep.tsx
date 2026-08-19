@@ -23,7 +23,7 @@ const steps = [
 
 export function ThreeStep() {
   return (
-    <section id="process" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+    <section id="how" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 md:py-28">
       <div className="max-w-2xl">
         <span className="text-xs font-bold uppercase tracking-widest text-primary">
           The 3-step process

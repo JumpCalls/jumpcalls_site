@@ -169,7 +169,6 @@ const tiers = [
       "Instant Lead Follow-Up",
       "Missed-Call Text-Back",
       "CRM Database Management",
-      "Web Hosting",
     ],
     note: "Everything you need to fix your local base and catch missed calls",
     spend: "",
@@ -180,38 +179,20 @@ const tiers = [
   },
   {
     name: "Discovery",
-    badge: "Get Found",
+    badge: "Popular",
     price: "$497",
     features: [
       "Everything in Starter",
       "Local SEO & Keyword Optimization",
       "Google Business Profile Posting Automation",
       "Automated Review Generation",
+      "AI Visibility (AI SEO, GEO, AEO Optimization)",
     ],
     note: "Get found by local customers already searching for your services",
     spend: "",
     addOn: "",
     cta: "Get Discovery",
     href: "https://buy.stripe.com/7sY7sLgo12ZRgHD77Ycwg05",
-    popular: false,
-  },
-  {
-    name: "Growth",
-    badge: "Popular",
-    price: "$729",
-    features: [
-      "Everything in Discovery",
-      "Call Tracking",
-      "Single Ad Platform Management (Google or Meta Ads)",
-      "Automated Follow-Up Sequence (3-touch)",
-      "Full Email & SMS Nurture Automation",
-    ],
-    note: "No lead goes cold, no call goes missed",
-    spend: "+ ad spend, billed direct",
-    footnote: "Additional ad platform: +$50/mo",
-    addOn: "",
-    cta: "Get Growth",
-    href: "https://buy.stripe.com/cNicN59ZD0RJ3UR8c2cwg01",
     popular: true,
   },
   {
@@ -219,11 +200,14 @@ const tiers = [
     badge: "AI/Tech Flagship",
     price: "$897",
     features: [
-      "Everything in Growth",
+      "Everything in Discovery",
+      "Call Tracking",
+      "Single Ad Platform Management (Google or Meta Ads)",
+      "Automated Follow-Up Sequence (3-touch)",
+      "Full Email & SMS Nurture Automation",
       "Advanced SEO",
       "AI Employees",
       "AI Webchat Feature",
-      "AI Visibility (AI SEO, GEO, AEO Optimization)",
     ],
     note: "Advanced AI visibility and employees that capture, qualify, and nurture leads 24/7",
     spend: "+ ad spend, billed direct",
@@ -428,7 +412,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3">
             {tiers.map((t) => (
               <div
                 key={t.name}
@@ -486,9 +470,6 @@ function Index() {
                   <p className="mt-6 overflow-hidden whitespace-nowrap rounded-xl border border-primary/30 bg-primary/5 px-3 py-2 text-center text-xs font-semibold text-primary sm:text-sm">
                     {t.addOn}
                   </p>
-                ) : null}
-                {"footnote" in t && t.footnote ? (
-                  <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{t.footnote}</p>
                 ) : null}
                 <Button
                   variant={t.popular ? "hero" : "outline"}

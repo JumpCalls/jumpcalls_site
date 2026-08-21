@@ -20,10 +20,9 @@ Key Selling Points & Value Propositions:
 - Transparent, Low-Risk: Flat monthly pricing, zero long-term lock-in contracts, cancel anytime, no hidden fees.
 
 Pricing Tiers (Flat monthly, no contracts):
-1. Starter ($297/mo): Review Management, Google Business Profile Optimization, Instant Lead Follow-Up, Missed-Call Text-Back, CRM Database Management, and Fast Web Hosting.
-2. Discovery ($497/mo): Everything in Starter + Local SEO & Keyword Optimization, Google Business Profile Posting Automation, and Automated Review Generation.
-3. Growth ($729/mo - Most Popular): Everything in Discovery + Call Tracking, Single Ad Platform Management (Google or Meta Ads), 3-touch Automated Follow-Up, and Full Email & SMS Nurture Automation. (Ad spend billed direct).
-4. Pro ($897/mo - AI/Tech Flagship): Everything in Growth + Advanced SEO, AI Employees, AI Webchat Feature, and AI Visibility (AI SEO, GEO, AEO Optimization). (Ad spend billed direct).
+1. Starter ($297/mo): Review Management, Google Business Profile Optimization, Instant Lead Follow-Up, Missed-Call Text-Back, and CRM Database Management.
+2. Discovery ($497/mo): Everything in Starter + Local SEO & Keyword Optimization, Google Business Profile Posting Automation, Automated Review Generation, and AI Visibility (AI SEO, GEO, AEO Optimization).
+3. Pro ($897/mo - AI/Tech Flagship): Everything in Discovery + Call Tracking, Single Ad Platform Management, 3-touch Automated Follow-Up, Full Email & SMS Nurture Automation, Advanced SEO, AI Employees, and AI Webchat. (Ad spend billed direct).
 
 Team / Leadership:
 - Andreas Papageorge (CEO & Founder, visual marketing & paid ad strategist with 35+ successful client launches).
@@ -133,7 +132,7 @@ export async function sendChatMessage({
   if (userText.includes("price") || userText.includes("cost") || userText.includes("pricing") || userText.includes("plan")) {
     return {
       reply:
-        "JumpCalls offers 4 transparent monthly plans: Starter ($297/mo with review management and GBP optimization), Discovery ($497/mo adding Local SEO and automated GBP posting), Growth ($729/mo adding call tracking, ad management, and full email/SMS nurture), and Pro ($897/mo adding Advanced SEO, AI Employees, AI Webchat, and AI Visibility). Which plan fits your current stage?",
+        "JumpCalls offers 3 transparent monthly plans: Starter ($297/mo with review management and GBP optimization), Discovery ($497/mo and our most popular option, adding Local SEO, automated GBP posting, reviews, and AI Visibility across AI SEO, GEO, and AEO), and Pro ($897/mo adding call tracking, ad management, nurture automation, Advanced SEO, AI Employees, and AI Webchat). Which plan fits your current stage?",
       isMock: true,
     };
   }
@@ -141,7 +140,7 @@ export async function sendChatMessage({
   if (userText.includes("ai") || userText.includes("receptionist") || userText.includes("phone") || userText.includes("voice")) {
     return {
       reply:
-        "The Pro plan is $897/mo and adds AI Employees, AI Webchat, Advanced SEO, and AI Visibility optimization across AI SEO, GEO, and AEO. It is built to qualify, engage, and nurture opportunities around the clock. Want to explore it for your business? Book a time at https://calendly.com/jumpcalls/60min!",
+        "The Pro plan is $897/mo and adds AI Employees, AI Webchat, Advanced SEO, call tracking, ad management, and full nurture automation on top of Discovery. It is built to qualify, engage, and nurture opportunities around the clock. Want to explore it for your business? Book a time at https://calendly.com/jumpcalls/60min!",
       isMock: true,
     };
   }
